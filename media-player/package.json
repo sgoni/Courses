@@ -6,10 +6,9 @@
   "scripts": {
     "start": "live-server"
   },
-  "keywords": [],
   "author": "s.goni <steven.goni@outlook.com>",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "live-server": "^1.2.1"
   }
 }
