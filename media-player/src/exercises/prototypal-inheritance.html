@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+</head>
+<body>
+    <a href="/src/exercises/">Go back</a>
+    <p><em>Open console</em></p>
+
+    <script>
+        function Hero (name) {
+            this.name = name;
+        }
+
+        Hero.prototype.saludar = function() {
+            console.log(`Hola, soy ${this.name}.`);
+        }
+
+        const hero = new Hero("Zelda");
+
+        /*
+        * Propiedades de la instancia
+        */
+        console.log("Name:", hero.name);
+
+        /*
+        * Propiedades de la "clase"
+        */        
+        console.log("Saludar:", hero.saludar);
+
+        /*
+        * Propiedades heredadas ej: toString
+        */ 
+        console.log("toString:", hero.toString);       
+
+        /*
+        * hasOwnProperty (de donde se obtine toString)
+        */         
+        console.log('hero.hasOwnProperty("name"):', hero.hasOwnProperty("name"));   
+
+        /*
+        * inspeccionemos el prototipo del objeto
+        */   
+
+        /*
+        * inspeccionemos el prototipo del objeto
+        */               
+
+        /*
+        * inspeccionemos el prototipo del objeto
+        */   
+    </script>
+</body>
+</html>

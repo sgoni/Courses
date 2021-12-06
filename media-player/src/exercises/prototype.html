@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+</head>
+<body>
+    <a href="/src/exercises/">Go back</a>
+    <p><em>Open console</em></p>
+
+    <script>
+        // Un objeto común y silvestre
+        // const hero = {
+        //     name: 'Batman'
+        // }
+
+        // hero.saludar = function() {
+        //     console.log(`Hola soy ${this.name}`);
+        // }
+
+        // hero.saludar();
+
+        // // Seamos un poco mas eficientes
+        // function Hero (_name) {
+        //     const hero = {
+        //         name: _name
+        //     }
+
+        //     hero.saludar =  function() {
+        //         console.log(`Hola soy ${this.name}`);
+        //     }
+
+        //     return hero;
+        // }
+
+        // const myHero = Hero("My hero");
+        // myHero.saludar();
+
+        // Aun podemos mejorar mas y evitar tener que crear las misma función cada vez mas
+        // const heroMethods = {
+        //     saludar: function() {
+        //         console.log(`Me llamo ${this.name}`);
+        //     }
+        // }
+
+        // function Hero (_name) {
+        //     const hero = {
+        //         name: _name
+        //     }
+        //     hero.saludar = heroMethods.saludar;            
+        //     return hero;
+        // }
+
+        // const myAnotherHero = Hero("My Another Hero");
+        // myAnotherHero.saludar();
+
+        // Object.create
+        // function Hero (_name) {
+        //     const hero = Object.create(heroMethods);
+        //     hero.name = _name;          
+        //     return hero;
+        // }
+
+        // const myAnotherHero = Hero("My Object Hero");
+        // myAnotherHero.saludar();
+
+        // Los metodos de hero dentro de Hero
+        // function Hero (_name) {
+        //     const hero = Object.create(Hero.prototype);
+        //     hero.name = _name;          
+        //     return hero;
+        // }
+
+        // Hero.prototype.saludar = function() {
+        //     console.log(`Me llamo ${this.name}`);
+        // }
+
+        // const myAnotherHero = Hero("My prototype Hero");
+        // myAnotherHero.saludar();        
+
+        // new es un atajo (azucar sintactica) para llevar HJero.prototype al objeto
+        function Hero (_name) {
+            this.name = _name;     
+        }
+
+        Hero.prototype.saludar = function() {
+            console.log(`New ${this.name}`);
+        }
+
+        const myAnotherHero = new Hero("My new Hero");
+        myAnotherHero.saludar(); 
+    </script>
+</body>
+</html>

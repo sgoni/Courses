@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+</head>
+<body>
+    <a href="/src/exercises/">Go back</a>
+    <p><em>Open console</em></p>
+
+    <ul>
+        <li><button class="call-to-action">Aprender</button></li>
+        <li><button class="call-to-action">Aprender Más</button></li>
+        <li><button class="call-to-action">!NUmca para de Aprender!</button></li>
+    </ul>
+
+    <script>
+        // Establece 'this' usando 'call'
+        function saludar() {
+            console.log(`Hola, soy ${this.name} ${this.apellido}`);
+        }
+
+        const person = {
+            name: "Steven",
+            apellido: "Goni"
+        }
+
+        saludar.call(person);
+
+        // Establece 'this' usando 'call' y pasar argumentos a la funcion               
+        function caminar(metros, direccion) {
+            console.log(`${this.name} camina ${metros} metros hacia ${direccion}`);
+        }
+
+        caminar.call(person, 15, "Norte");
+
+        // Establece 'this' usando 'apply' y pasar argumentos a la funcion
+        const valores = [800, "NorOeste"];
+        caminar.apply(person, valores);
+
+        // Establece 'this' usando 'bind'
+        const person2 = { name: "Rosita", apellido: "Rodriguez" };
+        const newFunction = saludar.bind(person2);
+        newFunction();
+
+        const anotherFunction =  caminar.bind(person2);
+        anotherFunction(1000, "Este");
+
+        const anotherFunction1 =  caminar.bind(person2, 2400, "Sur");
+        anotherFunction1();
+
+        const anotherFunction2 =  caminar.bind(person2, 2400);
+        anotherFunction2("SurOeste");
+
+        // Cuando es util usar uno de estos metodos
+        const buttons = document.getElementsByClassName("call-to-action");
+        // buttons.forEach(element => {
+        //     element.onclick = () => alert("Mensaje de alerta!")
+        // });
+
+        // NodeList
+        Array.prototype.forEach.call(buttons, button => {
+            button.onclick = () => alert("Mensaje de alerta!")
+        })
+
+    </script>
+</body>
+</html>
